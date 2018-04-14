@@ -1,12 +1,20 @@
 <template>
   <div id="app">
+    <pizzeria-header></pizzeria-header>
     <router-view/>
+    <pizzeria-footer></pizzeria-footer>
   </div>
 </template>
 
 <script>
+import Header from './components/common/Header'
+import Footer from './components/common/Footer'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    'pizzeria-header': Header,
+    'pizzeria-footer': Footer
+  }
 }
 </script>
 

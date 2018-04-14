@@ -1,6 +1,5 @@
 <template>
   <div>
-    <pizzeria-header></pizzeria-header>
     <b-container class="bv-example-row">
       <b-row>
         <b-col v-for="link in links" v-bind:key="link.id"><b-card :title="link.name"
@@ -13,24 +12,16 @@
           <p class="card-text">
             {{link.text}}
           </p>
-          <b-button href="#" variant="primary">Go somewhere</b-button>
+          <b-button to="ingredients" variant="primary">Go somewhere</b-button>
         </b-card></b-col>
       </b-row>
     </b-container>
-    <pizzeria-footer></pizzeria-footer>
   </div>
 </template>
 
 <script>
-import Header from './Header'
-import Footer from './Footer'
-
 export default {
   name: 'HomePage',
-  components: {
-    'pizzeria-header': Header,
-    'pizzeria-footer': Footer
-  },
   data: function () {
     return {
       links: [
