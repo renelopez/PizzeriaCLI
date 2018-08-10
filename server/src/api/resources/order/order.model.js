@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const productSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
   name:{
     type:String,
     unique:true,
@@ -15,9 +15,9 @@ const productSchema = new mongoose.Schema({
     required:['Price is required']
   },
 
-  orders:[{
+  products:[{
     type: mongoose.Schema.Types.ObjectId,
-    ref:'order'
+    ref:'product'
   }]
 
 
@@ -25,4 +25,4 @@ const productSchema = new mongoose.Schema({
 
 
 
-export const ProductModel = mongoose.model('product',productSchema);
+export const OrderModel = mongoose.model('order',orderSchema);
