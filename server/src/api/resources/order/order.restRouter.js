@@ -1,8 +1,9 @@
+/* eslint-disable import/prefer-default-export */
 import express from 'express';
 
 import orderController from './order.controller';
 
-const orderRouter = express.Router();
+export const orderRouter = express.Router();
 
 orderRouter.param('id', orderController.findByParam);
 
@@ -11,4 +12,3 @@ orderRouter.route('/')
   .put(orderController.updateOne)
   .delete(orderController.createOne);
 
-export default orderRouter;
