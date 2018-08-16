@@ -22,7 +22,7 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             babelrc:false,
-                            presets:[['env',{modules:false}],'stage-1'],
+                            presets:[['env',{modules:false}],'stage-0'],
                             plugins:['transform-regenerator','transform-runtime']
                         }
                     }
@@ -48,6 +48,6 @@ module.exports = {
         }),
         new webpack.BannerPlugin({banner:'require("source-map-support").install();',raw:true,entryOnly:false})
     ],
-    output: {path:path.join(__dirname,'dist'),filename:"server.js"}
+    output: {path:path.join(__dirname,'dist'),filename:'server.js'}
 
-}
+};

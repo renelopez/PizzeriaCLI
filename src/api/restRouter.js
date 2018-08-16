@@ -1,6 +1,6 @@
 import express from 'express';
-import productRouter from './resources/product';
-import apiErrorHandler from './modules/errorHandler';
+import {productRouter} from './resources/product';
+import {apiErrorHandler} from './modules/errorHandler';
 
 const restRouter = express.Router();
 
