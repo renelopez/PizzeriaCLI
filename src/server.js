@@ -3,7 +3,7 @@ import express from 'express';
 import { graphiqlExpress } from 'apollo-server-express';
 
 import setupMiddleware from './middleware';
-import connect from './db';
+import {connect} from './db';
 import { graphQLRouter } from './api';
 
 

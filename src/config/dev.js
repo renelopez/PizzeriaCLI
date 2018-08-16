@@ -1,8 +1,6 @@
-const config = {
+export const config = {
   expireTime: '30d',
   secrets: {
 
   },
 };
-
-export default config;

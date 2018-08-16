@@ -1,0 +1,23 @@
+type Product{
+  id:ID!
+  name:String!
+  description:String!
+  price:Number!
+  orders:[Order]
+}
+
+input NewProduct{
+  name:String,
+  description:String
+  price:Number
+  orders:[Order]
+}
+
+input UpdatedProduct{
+  id:ID!
+  name:String
+  description:String
+  price:Number
+  orders:[Order]
+}
+

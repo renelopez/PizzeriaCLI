@@ -1,8 +1,7 @@
 import { makeExecutableSchema } from 'graphql-tools'
-import {ProductType,ProductResolvers} from './resources/product';
+import {productType} from './resources/product';
 import merge from 'lodash.merge';
-
-import {graphiqlExpress} from 'apollo-server-express'
+import {graphqlExpress} from 'apollo-server-express'
 
 const baseSchema=`
   schema {
@@ -11,6 +10,20 @@ const baseSchema=`
   }
 `;
 
-const graphQlSchema = makeExecutableSchema({
+const graphQLSchema = makeExecutableSchema({
+  typeDefs:[
+    baseSchema,
+    productType
+  ]
+  // resolvers:merge(
+  //   {},
+  //   productResolvers
+  // )
+});
 
-})
+export const graphQLRouter = graphqlExpress((req) => ({
+  graphQLSchema,
+    context: {
+      req
+    }
+}));

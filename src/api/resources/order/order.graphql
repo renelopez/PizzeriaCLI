@@ -1,0 +1,17 @@
+type Order{
+  id:ID!
+  total:Number!
+  products:[Product]
+}
+
+input NewOrder{
+  total:Number!
+  products:[Product]!
+}
+
+input UpdatedProduct{
+  id:ID!
+  total:Number!
+  products:[Product]!
+}
+

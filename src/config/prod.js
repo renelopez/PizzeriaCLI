@@ -1,4 +1,4 @@
-const config = {
+export const config = {
   expireTime: '30d',
   secrets: {
 
@@ -7,5 +7,3 @@ const config = {
     url: 'mongodb://localhost/pizzeria-prod',
   },
 };
-
-export default config;
