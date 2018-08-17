@@ -1,17 +1,17 @@
 type Order{
   id:ID!
-  total:Number!
+  total:Float!
   products:[Product]
 }
 
 input NewOrder{
-  total:Number!
+  total:Float!
   products:[Product]!
 }
 
-input UpdatedProduct{
+input UpdatedOrder{
   id:ID!
-  total:Number!
+  total:Float!
   products:[Product]!
 }
 

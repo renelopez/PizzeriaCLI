@@ -2,14 +2,14 @@ type Product{
   id:ID!
   name:String!
   description:String!
-  price:Number!
+  price:Float!
   orders:[Order]
 }
 
 input NewProduct{
   name:String,
   description:String
-  price:Number
+  price:Float
   orders:[Order]
 }
 
@@ -17,7 +17,11 @@ input UpdatedProduct{
   id:ID!
   name:String
   description:String
-  price:Number
+  price:Float
   orders:[Order]
+}
+
+type Query {
+  getMe: Product!
 }
 

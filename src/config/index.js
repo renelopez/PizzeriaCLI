@@ -9,7 +9,7 @@ const baseConfig = {
   port: 3000,
   secrets: {},
   db: {
-    url: 'http://localhost/product',
+    url: 'mongodb://localhost/product',
   },
 };
 

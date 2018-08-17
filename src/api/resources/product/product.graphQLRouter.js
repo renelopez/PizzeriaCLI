@@ -1,2 +1,2 @@
 export * as productType from './product.graphql';
-//export * as productResolvers from './product.resolvers';
+export {productResolvers} from './product.resolvers';
