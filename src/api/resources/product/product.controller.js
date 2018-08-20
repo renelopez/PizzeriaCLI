@@ -1,4 +1,4 @@
-import Product from './product.model';
+import { ProductModel } from './product.model';
 import { generateControllers } from '../../modules/query';
 
-export default generateControllers(Product);
+export default generateControllers(ProductModel);

@@ -3,14 +3,14 @@ type Product{
   name:String!
   description:String!
   price:Float!
-  orders:[Order]
+##  orders:[Order]
 }
 
 input NewProduct{
   name:String,
   description:String
   price:Float
-  orders:[Order]
+  ## orders:[Order]
 }
 
 input UpdatedProduct{
@@ -18,10 +18,10 @@ input UpdatedProduct{
   name:String
   description:String
   price:Float
-  orders:[Order]
+ ## orders:[Order]
 }
 
 type Query {
-  getMe: Product!
+  getMe: String
 }
 
