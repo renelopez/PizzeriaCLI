@@ -6,12 +6,23 @@ type Order{
 
 input NewOrder{
   total:Float!
-  products:[Product]!
+  products:[ID!]
 }
 
 input UpdatedOrder{
   id:ID!
   total:Float!
-  products:[Product]!
+  products:[ID!]
+}
+
+extend type Query{
+  getAllOrders:[Order]!
+  getOrderById(_id:ID!) : Order!
+}
+
+extend type Mutation{
+  createOrder(input:NewOrder!) : Order!
+  updateOrder(_id:ID!,input:UpdatedOrder!) : Order!
+  deleteOrder(_id:ID!) : Order!
 }
 

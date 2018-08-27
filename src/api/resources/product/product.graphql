@@ -10,7 +10,7 @@ input NewProduct{
   name:String,
   description:String
   price:Float
-  orders:[Order]
+  orders:[ID!]
 }
 
 input UpdatedProduct{
@@ -18,10 +18,17 @@ input UpdatedProduct{
   name:String
   description:String
   price:Float
-  orders:[Order]
+  orders:[ID!]
 }
 
 type Query {
-  getAllProducts: Product
+  getAllProducts: [Product]!
+  getProductById(_id:ID!) : Product!,
+}
+
+type Mutation{
+  createProduct(input:NewProduct!) : Product!
+  updateProduct(_id:ID!,input:UpdatedProduct!) : Product!
+  deleteProduct(_id:ID!) : Product!
 }
 
