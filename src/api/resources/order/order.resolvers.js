@@ -10,8 +10,8 @@ const getOrderById = async (parent,{_id},context,info) => {
   return await OrderModel.findById(_id);
 };
 
-const createOrder = async (parent,args,context,info) => {
-  return await OrderModel.create(args);
+const createOrder = async (parent,{input},context,info) => {
+  return await OrderModel.create(input);
 };
 
 const updateOrder = async (parent,{_id,input},context,info) => {

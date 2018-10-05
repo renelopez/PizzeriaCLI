@@ -10,8 +10,8 @@ const getProductById = async (parent,{_id},context,info) => {
   return await ProductModel.findById(_id);
 };
 
-const createProduct = async (parent,args,context,info) => {
-  return await ProductModel.create(args);
+const createProduct = async (parent,{input},context,info) => {
+  return await ProductModel.create(input);
 };
 
 const updateProduct = async (parent,{_id,input},context,info) => {
