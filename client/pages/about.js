@@ -1,6 +1,6 @@
 import React from 'react';
 import Error from 'next/error';
-import Nav from '../components/Nav';
+import Nav from '../components/Nav/Nav';
 import posts from '../data/posts'
 export default ({url: {query:{id}}}) => (
   (posts[id]) ? (
