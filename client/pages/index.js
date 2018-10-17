@@ -23,8 +23,19 @@ export default  () => (
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import LoginComponent from '../auth/LoginComponent';
 
-import LoginComponent from '../auth/Login';
+const styles = theme =>({
+  container:{
+    display:'flex',
+    flexWrap:'wrap',
+    width:'100%',
+    height:'100%'
+  },
+});
+
 
 class Index extends React.Component {
 
@@ -33,10 +44,12 @@ class Index extends React.Component {
   }
 
   render() {
-
+    const { classes } = this.props;
 
     return (
+      <div className={classes.container}>
       <LoginComponent/>
+      </div>
     );
   }
 }
@@ -45,4 +58,4 @@ Index.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default Index
+export default withStyles(styles)(Index)
