@@ -30,9 +30,10 @@ import LoginComponent from '../auth/LoginComponent';
 const styles = theme =>({
   container:{
     display:'flex',
-    flexWrap:'wrap',
     width:'100%',
-    height:'100%'
+    alignItems:'center',
+    justifyContent:'center',
+    minHeight:'100vh',
   },
 });
 
@@ -48,7 +49,7 @@ class Index extends React.Component {
 
     return (
       <div className={classes.container}>
-      <LoginComponent/>
+          <LoginComponent/>
       </div>
     );
   }

@@ -4,18 +4,26 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography/Typography';
+import Button from '@material-ui/core/Button'
+import Router from 'next/router';
 
 const styles = theme =>({
-  container:{
+  containerForm:{
+    width:'calc(100% -48px)',
     display:'flex',
     flexDirection:'column',
-    justifyContent:'center',
-    alignItems:'center',
-    width:300,
-    height:500
+    padding:'24px',
+    borderRadius:'6px',
+    justifyContent:'space-between'
+  },
+  containerCard:{
+    display:'inline-flex',
+    flexDirection:'column'
   },
   formItem:{
-    'flex-grow':1
+    marginTop:'16px',
+    marginBottom:'16px'
   }
 });
 
@@ -23,22 +31,26 @@ const styles = theme =>({
 class LoginComponent extends React.Component {
   constructor(props) {
     super(props);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.state = {
       email :'',
       password :''
-    }
+    };
+
   }
 
-  onSubmit(){
-
+  onSubmit(ev){
+    ev.preventDefault();
+    Router.push('/dashboard');
   }
 
   handleEmailChange(ev){
-    this.state.set('email',ev.currentTarget.value)
+    this.setState({'email':ev.currentTarget.value})
   }
 
   handlePasswordChange(ev){
-    this.state.set('email',ev.currentTarget.value)
+    this.setState({'email':ev.currentTarget.value})
   }
 
 
@@ -46,10 +58,22 @@ class LoginComponent extends React.Component {
   render() {
     const { classes } = this.props;
       return (
-          <Card className={classes.container}>
+        <form onSubmit={this.onSubmit}>
+          <Card className={classes.containerForm}>
+            <Typography component="h2" variant="h4" gutterBottom>
+              Pizzeria Management
+            </Typography>
             <TextField id="loginEmail" className={classes.formItem} label="Email" value={this.state.email} onChange={this.handleEmailChange} />
             <TextField id="loginPassword" className={classes.formItem}  label="Password" value={this.state.password} onChange={this.handlePasswordChange} />
+            <Button type='submit' variant="contained" color="primary" className={classes.formItem}>
+             Login
+            </Button>
+            <Button variant="contained" color="secondary" className={classes.formItem}>
+              Register
+            </Button>
           </Card>
+        </form>
+
       )
   }
 }
