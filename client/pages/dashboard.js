@@ -15,20 +15,23 @@ const styles = theme =>({
     width:'calc(100% - 24px)',
     padding:'12px',
     borderRadius:'6px',
-    maxWidth:'85%',
-    minHeight:'50vh'
+    //maxWidth:'85%',
+    minHeight:'50vh',
+   // display:'inline-flex',
+   // flexWrap:'wrap'
   },
   cardHolder:{
-    display:'flex',
+    display:'inline-flex',
     alignItems:'center',
     flexWrap:'wrap',
     justifyContent:'space-around',
-    alignContent:'stretch'
-
-
+    alignContent:'stretch',
+    width: '100%',
   },
   cardItem:{
-    width:'50%'
+    flexGrow:1,
+    //flexBasis:'25%',
+    padding:'15vh'
   }
 });
 
@@ -54,16 +57,16 @@ class Dashboard extends React.Component {
               Title 2
               </Typography>
             </Card>
-            {/*<Card className={classes.cardItem}>*/}
-              {/*<Typography variant="h5" gutterBottom>*/}
-              {/*Title 3*/}
-              {/*</Typography>*/}
-            {/*</Card>*/}
-            {/*<Card className={classes.cardItem}>*/}
-              {/*<Typography variant="h5" gutterBottom>*/}
-              {/*Title 4*/}
-              {/*</Typography>*/}
-            {/*</Card>*/}
+            <Card className={classes.cardItem}>
+              <Typography variant="h5" gutterBottom>
+              Title 3
+              </Typography>
+            </Card>
+            <Card className={classes.cardItem}>
+              <Typography variant="h5" gutterBottom>
+              Title 4
+              </Typography>
+            </Card>
           </div>
         </Card>
       </div>
