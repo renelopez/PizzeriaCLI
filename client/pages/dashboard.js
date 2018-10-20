@@ -23,10 +23,12 @@ const styles = theme =>({
     alignItems:'center',
     flexWrap:'wrap',
     justifyContent:'space-around',
-    width:'100%'
+    alignContent:'stretch'
+
+
   },
   cardItem:{
-    width:'25%'
+    width:'50%'
   }
 });
 
@@ -52,16 +54,16 @@ class Dashboard extends React.Component {
               Title 2
               </Typography>
             </Card>
-            <Card className={classes.cardItem}>
-              <Typography variant="h5" gutterBottom>
-              Title 3
-              </Typography>
-            </Card>
-            <Card className={classes.cardItem}>
-              <Typography variant="h5" gutterBottom>
-              Title 4
-              </Typography>
-            </Card>
+            {/*<Card className={classes.cardItem}>*/}
+              {/*<Typography variant="h5" gutterBottom>*/}
+              {/*Title 3*/}
+              {/*</Typography>*/}
+            {/*</Card>*/}
+            {/*<Card className={classes.cardItem}>*/}
+              {/*<Typography variant="h5" gutterBottom>*/}
+              {/*Title 4*/}
+              {/*</Typography>*/}
+            {/*</Card>*/}
           </div>
         </Card>
       </div>
