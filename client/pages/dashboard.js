@@ -18,7 +18,9 @@ const styles = theme =>({
     height: '100%'
   },
   root:{
-    height:'100%'
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center'
   }
   // dashboardContainer:{
   //   display:'flex',
@@ -86,29 +88,25 @@ class Dashboard extends React.Component {
   render(){
     const { classes } = this.props;
     return (
-      <Grid container justify="space-between" alignItems="center" className={classes.visionLayout} spacing={16}>
-        {/*<Grid item xs={12}>*/}
-          {/*<Paper>*/}
-            {/*<Grid container direction="row" spacing={16} justify="center" alignItems="center">*/}
-              <Grid key={0} item xs={4}>
-                <Card>
-                  <Typography  variant="h5" gutterBottom>Title 1</Typography>
-                </Card>
-              </Grid>
-              <Grid key={1} item  xs={4} >
-                <Card>
-                  <Typography  variant="h5" gutterBottom>Title 2</Typography>
-                </Card>
-              </Grid>
-              <Grid key={2} item  xs={4}>
-                <Card>
-                  <Typography  variant="h5" gutterBottom>Title 3</Typography>
-                </Card>
-              </Grid>
-            {/*</Grid>*/}
-          {/*</Paper>*/}
-        {/*</Grid>*/}
-      </Grid>
+      <div className={classes.root}>
+        <Grid container spacing={16} >
+                <Grid key={0} item xs={4}>
+                  <Card>
+                    <Typography  variant="h5" gutterBottom>Title 1</Typography>
+                  </Card>
+                </Grid>
+                <Grid key={1} item  xs={4} >
+                  <Card>
+                    <Typography  variant="h5" gutterBottom>Title 2</Typography>
+                  </Card>
+                </Grid>
+                <Grid key={2} item  xs={4}>
+                  <Card>
+                    <Typography  variant="h5" gutterBottom>Title 3</Typography>
+                  </Card>
+                </Grid>
+        </Grid>
+      </div>
 
     )
   }
