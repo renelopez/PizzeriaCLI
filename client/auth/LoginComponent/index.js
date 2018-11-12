@@ -7,23 +7,21 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography/Typography';
 import Button from '@material-ui/core/Button'
 import Router from 'next/router';
+import Grid from "@material-ui/core/Grid/Grid";
+import Paper from "@material-ui/core/Paper/Paper";
 
 const styles = theme =>({
-  containerForm:{
-    width:'calc(100% -48px)',
-    display:'flex',
-    flexDirection:'column',
-    padding:'24px',
+  container:{
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  textField:{
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  paperContainer:{
     borderRadius:'6px',
-    justifyContent:'space-between'
-  },
-  containerCard:{
-    display:'inline-flex',
-    flexDirection:'column'
-  },
-  formItem:{
-    marginTop:'16px',
-    marginBottom:'16px'
+    padding:'10px'
   }
 });
 
@@ -31,8 +29,7 @@ const styles = theme =>({
 class LoginComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       email :'',
       password :''
@@ -45,12 +42,8 @@ class LoginComponent extends React.Component {
     Router.push('/dashboard');
   }
 
-  handleEmailChange(ev){
-    this.setState({'email':ev.currentTarget.value})
-  }
+  handleChange(type){
 
-  handlePasswordChange(ev){
-    this.setState({'email':ev.currentTarget.value})
   }
 
 
@@ -58,21 +51,45 @@ class LoginComponent extends React.Component {
   render() {
     const { classes } = this.props;
       return (
-        <form onSubmit={this.onSubmit}>
-          <Card className={classes.containerForm}>
-            <Typography component="h2" variant="h4" gutterBottom>
-              Pizzeria Management
-            </Typography>
-            <TextField id="loginEmail" className={classes.formItem} label="Email" value={this.state.email} onChange={this.handleEmailChange} />
-            <TextField id="loginPassword" className={classes.formItem}  label="Password" value={this.state.password} onChange={this.handlePasswordChange} />
-            <Button type='submit' variant="contained" color="primary" className={classes.formItem}>
-             Login
-            </Button>
-            <Button variant="contained" color="secondary" className={classes.formItem}>
-              Register
-            </Button>
-          </Card>
-        </form>
+        <form className={classes.container} noValidate autoComplete="off">
+         <Paper className={classes.paperContainer}>
+           <Grid container direction='column' spacing={12}>
+             <Grid item xs={12}>
+               <Typography component="h2" variant="h4" gutterBottom>
+                 Pizzeria Management
+               </Typography>
+             </Grid>
+             <Grid item xs={12}>
+               <TextField
+                 id="standard-name"
+                 label="Username"
+                 className={classes.textField}
+                 value={this.state.name}
+                 onChange={this.handleChange('name')}
+                 margin="normal"
+               />
+             </Grid>
+             <Grid item xs={12}>
+               <TextField
+                 id="standard-name"
+                 label="Password"
+                 className={classes.textField}
+                 value={this.state.name}
+                 onChange={this.handleChange('name')}
+                 margin="normal"
+               />
+             </Grid>
+             <Grid item xs={12}>
+               <Button type='submit' variant="contained" color="primary">
+                 Login
+               </Button>
+               <Button type='submit' variant="contained" color="secondary">
+                 Register
+               </Button>
+             </Grid>
+           </Grid>
+         </Paper>
+       </form>
 
       )
   }

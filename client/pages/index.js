@@ -30,10 +30,9 @@ import LoginComponent from '../auth/LoginComponent';
 const styles = theme =>({
   container:{
     display:'flex',
-    width:'100%',
-    alignItems:'center',
-    justifyContent:'center',
     minHeight:'100vh',
+    alignItems:'center',
+    justifyContent:'center'
   },
 });
 
