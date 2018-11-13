@@ -53,7 +53,7 @@ class LoginComponent extends React.Component {
       return (
         <form className={classes.container} noValidate autoComplete="off">
          <Paper className={classes.paperContainer}>
-           <Grid container direction='column' spacing={12}>
+           <Grid container direction='column' spacing={8}>
              <Grid item xs={12}>
                <Typography component="h2" variant="h4" gutterBottom>
                  Pizzeria Management
