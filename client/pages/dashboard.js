@@ -4,6 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import withLayout from '../components/Layout';
+import { compose } from 'recompose';
 
 const styles = theme =>({
   rootDashboard:{
@@ -50,4 +52,7 @@ class Dashboard extends React.Component {
   }
 }
 
-export default withStyles(styles)(Dashboard);
+export default compose(
+  withStyles(styles),
+  withLayout
+)(Dashboard)
