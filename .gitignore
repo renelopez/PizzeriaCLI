@@ -8,7 +8,7 @@ yarn-error.log*
 /test/e2e/reports/
 selenium-debug.log
 
-/client/.next/
+/client/.next/*
 
 # Editor directories and files
 .idea
