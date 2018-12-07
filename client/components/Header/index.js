@@ -59,7 +59,7 @@ class Header extends React.Component{
     const fullList = (
       <div className={classes.list}>
         <List>
-          {['Pizzas', 'Customers', 'Ingredients', 'Sales'].map((text, index) => (
+          {['Products', 'Customers', 'Ingredients', 'Sales'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
