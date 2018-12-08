@@ -15,6 +15,10 @@ const productSchema = new mongoose.Schema({
     required: ['Price is required'],
   },
 
+  recipe: {
+    type: String,
+  },
+
   orders: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'order',

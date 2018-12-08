@@ -26,6 +26,24 @@ const styles = theme =>({
 
 
 class ProductDetails extends Component {
+
+  state = {
+    name:'',
+    description:'',
+    recipe:'',
+    price:''
+  };
+
+  onProductChange = (ev) =>{
+    this.setState({
+      [ev.currentTarget.id]:ev.currentTarget.value
+    })
+  };
+
+  createProduct = (ev) => {
+    // Create Product
+  };
+
   render() {
     const url= this.props.router.query.id;
     const { classes } = this.props;
@@ -36,19 +54,19 @@ class ProductDetails extends Component {
             <Paper className={classes.gridItem}>
               <Grid container spacing={16} alignItems='center' justify='center'>
                 <Grid key={1} item sm={12} xs={12}>
-                  <TextField label="name" id='product-name' fullWidth />
+                  <TextField label="name" id='name' fullWidth onChange={this.onProductChange} />
                 </Grid>
                 <Grid key={2} item sm={12} xs={12}>
-                  <TextField label="description" id='product-description' fullWidth/>
+                  <TextField label="description" id='description' fullWidth onChange={this.onProductChange}/>
                 </Grid>
                 <Grid key={3} item sm={12} xs={12}>
-                  <TextField label="recipe" id='product-recipe' fullWidth/>
+                  <TextField label="recipe" id='recipe' fullWidth onChange={this.onProductChange}/>
                 </Grid>
                 <Grid key={4} item sm={12} xs={12}>
-                  <TextField label="price" id='product-price' fullWidth/>
+                  <TextField type='number' label="price" id='price' fullWidth onChange={this.onProductChange}/>
                 </Grid>
                 <Grid key={4} item sm={12} xs={12}>
-                  <Button variant="contained" color="primary" >
+                  <Button variant="contained" color="primary" onClick={this.createProduct} >
                     Create
                   </Button>
                   <Button variant="contained" color="secondary">

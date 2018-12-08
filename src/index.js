@@ -8,8 +8,8 @@ import app from './server'
 const server = http.createServer(app);
 let currentApp = app;
 
-server.listen(3000, () => {
-  console.log('Server listening on port 3000')
+server.listen(4000, () => {
+  console.log('Server listening on port 4000')
 })
 
 if (module.hot) {
