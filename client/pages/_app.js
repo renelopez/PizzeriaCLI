@@ -10,30 +10,16 @@ import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
 import ApolloClient from 'apollo-client'
-import gql from 'graphql-tag';
+import {ApolloProvider} from 'react-apollo'
 
-const client = new ApolloClient({
-  link: createHttpLink({
-    uri: 'http://localhost:4000/graphql',
-    fetch: fetch,
-  }),
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   link: createHttpLink({
+//     uri: 'http://localhost:4000/graphql',
+//     fetch: fetch,
+//   }),
+//   cache: new InMemoryCache(),
+// });
 
-client
-.query({
-  query: gql`
-    query{
-      getAllProducts {
-        id
-        name
-        description
-      }
-    }
-  `
-})
-.then(result => console.log(result))
-  .catch(err => console.log(err));
 
 
 
