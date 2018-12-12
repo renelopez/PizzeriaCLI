@@ -58,6 +58,7 @@ class ProductDashboard extends React.Component{
     return(
       <Query query={productsQuery}>
         {({ data }) => {
+          console.log("The data",data.getAllProducts);
           return (
                   <Paper className={classes.root}>
                   <Table className={classes.table}>
@@ -72,17 +73,17 @@ class ProductDashboard extends React.Component{
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {rows.map(row => {
+                      {data.getAllProducts.map(row => {
                         return (
-                          <TableRow key={data.id}>
+                          <TableRow key={row.id}>
                             <TableCell component="th" scope="row">
-                              {data.name}
+                              {row.name}
                             </TableCell>
-                            <TableCell>{data.description}</TableCell>
-                            <TableCell>{data.recipe}</TableCell>
-                            <TableCell>{data.price}</TableCell>
+                            <TableCell>{row.description}</TableCell>
+                            <TableCell>{row.recipe}</TableCell>
+                            <TableCell>{row.price}</TableCell>
                             <TableCell>
-                              <Link as={`/product/${data.id}`} href={{pathname: '/productDetails', query: {id: data.id}}}>
+                              <Link as={`/product/${row.id}`} href={{pathname: '/productDetails', query: {id: row.id}}}>
                                 <a><EditIcon/></a>
                               </Link>
                             </TableCell>

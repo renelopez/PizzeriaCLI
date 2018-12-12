@@ -5,23 +5,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import JssProvider from 'react-jss/lib/JssProvider';
 import getPageContext from '../utilities/getPageContext';
 
-import fetch from 'node-fetch'
-import { createHttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-
-import ApolloClient from 'apollo-client'
-import {ApolloProvider} from 'react-apollo'
-
-// const client = new ApolloClient({
-//   link: createHttpLink({
-//     uri: 'http://localhost:4000/graphql',
-//     fetch: fetch,
-//   }),
-//   cache: new InMemoryCache(),
-// });
-
-
-
 
 class MyApp extends App {
   constructor(props) {
