@@ -1,0 +1,24 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "commonjs": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 9,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react/prop-types": 0,
+    "react/jsx-uses-vars": [2],
+    "no-console": 0,
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+  }
+}
