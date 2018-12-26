@@ -9,6 +9,7 @@ yarn-error.log*
 selenium-debug.log
 
 /client/.next/*
+.next/*
 
 # Editor directories and files
 .idea
