@@ -8,8 +8,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Fab from '@material-ui/core/Fab';
 import { compose } from 'recompose';
 import { Query } from 'react-apollo';
 import withData from '../lib/apollo';
@@ -24,56 +26,73 @@ const styles = theme => ({
   },
   table: {
     minWidth: 700
+  },
+  fab: {
+    position: 'absolute',
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 2
   }
 });
 
 function ProductDashboard(props) {
   const { classes } = props;
   return (
-    <Query query={GET_ALL_PRODUCTS}>
-      {({ data }) => {
-        console.log('The data', data.getAllProducts);
-        return (
-          <Paper className={classes.root}>
-            <Table className={classes.table}>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Product name</TableCell>
-                  <TableCell>Description</TableCell>
-                  <TableCell>Recipe</TableCell>
-                  <TableCell>Price</TableCell>
-                  <TableCell />
-                  <TableCell />
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {data.getAllProducts.map(row => (
-                  <TableRow key={row.id}>
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
-                    <TableCell>{row.description}</TableCell>
-                    <TableCell>{row.recipe}</TableCell>
-                    <TableCell>{row.price}</TableCell>
-                    <TableCell>
-                      <Link
-                        as={`/product/${row.id}`}
-                        href={{ pathname: '/productDetails', query: { id: row.id } }}
-                      >
-                        <EditIcon />
-                      </Link>
-                    </TableCell>
-                    <TableCell>
-                      <DeleteIcon />
-                    </TableCell>
+    <div>
+      <Query query={GET_ALL_PRODUCTS}>
+        {({ data }) => {
+          console.log('The data', data.getAllProducts);
+          return (
+            <Paper className={classes.root}>
+              <Table className={classes.table}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Product name</TableCell>
+                    <TableCell>Description</TableCell>
+                    <TableCell>Recipe</TableCell>
+                    <TableCell>Price</TableCell>
+                    <TableCell />
+                    <TableCell />
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </Paper>
-        );
-      }}
-    </Query>
+                </TableHead>
+                <TableBody>
+                  {data.getAllProducts.map(row => (
+                    <TableRow key={row.id}>
+                      <TableCell component="th" scope="row">
+                        {row.name}
+                      </TableCell>
+                      <TableCell>{row.description}</TableCell>
+                      <TableCell>{row.recipe}</TableCell>
+                      <TableCell>{row.price}</TableCell>
+                      <TableCell>
+                        <Link
+                          as={`/product/${row.id}`}
+                          href={{ pathname: '/productDetails', query: { id: row.id } }}
+                        >
+                          <EditIcon />
+                        </Link>
+                      </TableCell>
+                      <TableCell>
+                        <DeleteIcon />
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Paper>
+          );
+        }}
+      </Query>
+      <>
+        <Fab
+          color="primary"
+          aria-label="Add"
+          className={classes.fab}
+          href="/productDetails?id=create"
+        >
+          <AddIcon />
+        </Fab>
+      </>
+    </div>
   );
 }
 
