@@ -9,37 +9,8 @@ import { CREATE_PRODUCT } from '../queries/product';
 import ProductForm from '../components/ProductForm';
 
 class ProductDetails extends Component {
-  state = {
-    name: '',
-    description: '',
-    recipe: '',
-    price: ''
-  };
-
-  onProductChange = ev => {
-    this.setState({
-      [ev.currentTarget.id]: ev.currentTarget.value
-    });
-  };
-
   onCompletedCreateQuery = data => {
-    console.log('This is the data', data);
-  };
-
-  createProduct = (mutateProductFunc, data) => {
-    console.log('Aqui ando');
-    const { name, description, recipe, price } = this.state;
-    mutateProductFunc({
-      variables: {
-        input: {
-          name,
-          description,
-          recipe,
-          price
-        }
-      }
-    });
-    console.log(`The data is:${data}`);
+    console.log('This is the completed data', data);
   };
 
   render() {
@@ -49,10 +20,12 @@ class ProductDetails extends Component {
       console.log('entre');
       return (
         <Mutation mutation={CREATE_PRODUCT} onCompleted={this.onCompletedCreateQuery}>
-          {(mutateProduct, { data }) => (
+          {(createProductAction, { data, loading, error }) => (
             <ProductForm
-              onProductChange={this.onProductChange}
-              createProduct={this.createProduct(mutateProduct, data)}
+              createProductAction={createProductAction}
+              data={data}
+              loading={loading}
+              error={error}
             />
           )}
         </Mutation>
