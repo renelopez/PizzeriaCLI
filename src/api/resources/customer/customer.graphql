@@ -1,0 +1,33 @@
+type Customer {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  age: Number!
+  orders: [Order]
+}
+
+input NewCustomer {
+  firstName: String!
+  lastName: String!
+  age: Number!
+  orders: [Order]
+}
+
+input UpdatedCustomer {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  age: Number!
+  orders: [Order]
+}
+
+extend type Query {
+  getAllCustomers: [Customer]!
+  getCustomerById(_id: ID!): Customer!
+}
+
+extend type Mutation {
+  createCustomer(input: NewCustomer!): Customer!
+  updateCustomer(_id: ID!, input: UpdatedCustomer!): Customer!
+  deleteCustomer(_id: ID!): Customer!
+}

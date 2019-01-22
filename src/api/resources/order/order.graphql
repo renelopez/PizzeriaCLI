@@ -1,28 +1,27 @@
-type Order{
-  id:ID!
-  total:Float!
-  products:[Product]
+type Order {
+  id: ID!
+  total: Float!
+  products: [Product]
 }
 
-input NewOrder{
-  total:Float!
-  products:[ID!]
+input NewOrder {
+  total: Float!
+  products: [ID!]
 }
 
-input UpdatedOrder{
-  id:ID!
-  total:Float!
-  products:[ID!]
+input UpdatedOrder {
+  id: ID!
+  total: Float!
+  products: [ID!]
 }
 
-extend type Query{
-  getAllOrders:[Order]!
-  getOrderById(_id:ID!) : Order!
+extend type Query {
+  getAllOrders: [Order]!
+  getOrderById(_id: ID!): Order!
 }
 
-extend type Mutation{
-  createOrder(input:NewOrder!) : Order!
-  updateOrder(_id:ID!,input:UpdatedOrder!) : Order!
-  deleteOrder(_id:ID!) : Order!
+extend type Mutation {
+  createOrder(input: NewOrder!): Order!
+  updateOrder(_id: ID!, input: UpdatedOrder!): Order!
+  deleteOrder(_id: ID!): Order!
 }
-
