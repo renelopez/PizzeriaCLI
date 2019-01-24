@@ -5,7 +5,7 @@ const customerSchema = new mongoose.Schema({
     type: String,
     required: ["Customer first name must be required"]
   },
-  name: {
+  lastName: {
     type: String,
     required: ["Customer last name must be required"]
   },
@@ -34,4 +34,4 @@ const customerSchema = new mongoose.Schema({
   ]
 });
 
-export const OrderModel = mongoose.model("order", orderSchema);
+export const CustomerModel = mongoose.model("customer", customerSchema);

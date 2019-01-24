@@ -1,37 +1,35 @@
-type Product{
-  id:ID!
-  name:String!
-  description:String!
-  price:Float!
-  recipe:String!
-  orders:[Order]
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+  recipe: String!
+  orders: [Order]
 }
 
-input NewProduct{
-  name:String,
-  description:String
-  price:Float
-  recipe:String
-  orders:[ID!]
+input NewProduct {
+  name: String
+  description: String
+  price: Float
+  recipe: String
 }
 
-input UpdatedProduct{
-  id:ID!
-  name:String
-  description:String
-  price:Float
-  recipe:String
-  orders:[ID!]
+input UpdatedProduct {
+  id: ID!
+  name: String
+  description: String
+  price: Float
+  recipe: String
+  orders: [ID!]
 }
 
 type Query {
   getAllProducts: [Product]!
-  getProductById(_id:ID!) : Product!,
+  getProductById(_id: ID!): Product!
 }
 
-type Mutation{
-  createProduct(input:NewProduct!) : Product!
-  updateProduct(_id:ID!,input:UpdatedProduct!) : Product!
-  deleteProduct(_id:ID!) : Product!
+type Mutation {
+  createProduct(input: NewProduct!): Product!
+  updateProduct(_id: ID!, input: UpdatedProduct!): Product!
+  deleteProduct(_id: ID!): Product!
 }
-

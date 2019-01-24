@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack --colors --progress",
     "test:unit": "NODE_ENV=testing rm -rf ./tmp/mocha-webpack && mocha-webpack --webpack-config webpack.testing.js \"src/**/*.spec.js\" --timeout 10000 --require source-map-support/register",
-    "test": "npm run test:unit"
+    "test": "mocha -R min"
   },
   "dependencies": {
     "apollo-server-express": "^2.0.4",
