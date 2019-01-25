@@ -25,11 +25,14 @@ const customerSchema = new mongoose.Schema({
           quantity: {
             type: Number
           },
-          price: {
+          productTotal: {
             type: Number
           }
         }
-      ]
+      ],
+      total: {
+        type: Number
+      }
     }
   ]
 });

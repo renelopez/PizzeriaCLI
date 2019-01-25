@@ -2,11 +2,19 @@ import mongoose, { mongo } from "mongoose";
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect("mongodb://localhost/pizzeria");
+var promise = mongoose.connect(
+  "mongodb://localhost/pizzeria",
+  {
+    useMongoClient: true
+    /* other options */
+  }
+);
 
-mongoose.connection
-  .once("open", () => console.log("connected"))
-  .on("error", error => {
+promise
+  .then(() => {
+    console.log("connected");
+  })
+  .catch(error => {
     console.warn("Error: ", error);
   });
 

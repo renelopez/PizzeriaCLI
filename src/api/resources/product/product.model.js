@@ -10,18 +10,9 @@ const productSchema = new mongoose.Schema({
     type: String
   },
 
-  price: [
-    {
-      size: {
-        type: String,
-        required: "Size is required"
-      },
-      quantity: {
-        type: Number,
-        required: "Quantity is required"
-      }
-    }
-  ],
+  price: {
+    type: Number
+  },
 
   recipe: {
     type: String
