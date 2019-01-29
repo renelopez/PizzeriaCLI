@@ -1,25 +1,24 @@
-import {ProductModel}  from './product.model'
-import {OrderModel} from "../order/order.model";
-import merge from 'lodash.merge'
+import { ProductModel } from "./product.model";
+import merge from "lodash.merge";
 
-const getAllProducts = async (parent,args,context,info) => {
+const getAllProducts = async (parent, args, context, info) => {
   return await ProductModel.find({});
 };
 
-const getProductById = async (parent,{_id},context,info) => {
+const getProductById = async (parent, { _id }, context, info) => {
   return await ProductModel.findById(_id);
 };
 
-const createProduct = async (parent,{input},context,info) => {
+const createProduct = async (parent, { input }, context, info) => {
   return await ProductModel.create(input);
 };
 
-const updateProduct = async (parent,{_id,input},context,info) => {
-  return await ProductModel.findOneAndUpdate({_id},input,{new:true});
+const updateProduct = async (parent, { _id, input }, context, info) => {
+  return await ProductModel.findOneAndUpdate({ _id }, input, { new: true });
 };
 
-const deleteProduct = async (parent,{_id},context,info) => {
-  return await ProductModel.findByIdAndRemove({_id});
+const deleteProduct = async (parent, { _id }, context, info) => {
+  return await ProductModel.findByIdAndRemove({ _id });
 };
 
 export const productResolvers = {
@@ -27,12 +26,12 @@ export const productResolvers = {
     getAllProducts,
     getProductById
   },
-  Mutation:{
+  Mutation: {
     createProduct,
     updateProduct,
     deleteProduct
-  },
-  Product:{
+  }
+  /* Product:{
     async orders(product){
       const populated = await product
         .populate('orders')
@@ -40,5 +39,5 @@ export const productResolvers = {
 
       return populated.orders;
     }
-  }
+  } */
 };

@@ -4,7 +4,6 @@ type Product {
   description: String!
   price: Float!
   recipe: String!
-  orders: [Order]
 }
 
 input NewProduct {
@@ -20,7 +19,6 @@ input UpdatedProduct {
   description: String
   price: Float
   recipe: String
-  orders: [ID!]
 }
 
 type Query {

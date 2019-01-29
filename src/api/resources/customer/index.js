@@ -1,1 +1,1 @@
-export * from "./order.graphQLRouter";
+export * from "./customer.graphQLRouter";

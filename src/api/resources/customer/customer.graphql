@@ -3,14 +3,12 @@ type Customer {
   firstName: String!
   lastName: String!
   age: Number!
-  orders: [Order]
 }
 
 input NewCustomer {
   firstName: String!
   lastName: String!
   age: Number!
-  orders: [Order]
 }
 
 input UpdatedCustomer {
@@ -18,7 +16,6 @@ input UpdatedCustomer {
   firstName: String!
   lastName: String!
   age: Number!
-  orders: [Order]
 }
 
 extend type Query {
