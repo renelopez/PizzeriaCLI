@@ -107,8 +107,15 @@ describe("Customer Tests", () => {
           .save()
           .then(data => {
             console.log("This is the customer", data);
-
-            done();
+            CustomerModel.findOne({ name: "Rene Jezrael" })
+              .populate("product")
+              .exec(function(err, customerProducts) {
+                if (err) {
+                  console.log(err);
+                }
+                console.log("Customer Products", customerProducts);
+                done();
+              });
           })
           .catch(err => {
             console.log("Error while saving customers", err);
