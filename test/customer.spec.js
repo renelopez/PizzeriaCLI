@@ -107,13 +107,31 @@ describe("Customer Tests", () => {
           .save()
           .then(data => {
             console.log("This is the customer", data);
+
             CustomerModel.findOne({ name: "Rene Jezrael" })
-              .populate("product")
-              .exec(function(err, customerProducts) {
+              .populate({
+                path: "orders.products.product"
+              })
+              .exec(function(err, populatedField) {
                 if (err) {
-                  console.log(err);
+                  console.log("Error ", err);
                 }
-                console.log("Customer Products", customerProducts);
+                console.log("Customer", populatedField);
+                assert(
+                  populatedField.orders[0].products[0].product.name ===
+                    "Pizza Genio Chica"
+                );
+                assert(
+                  populatedField.orders[0].products[1].product.name ===
+                    "Pizza Genio Mediana"
+                );
+                assert(
+                  populatedField.orders[0].products[2].product.name ===
+                    "Pizza Genio Grande"
+                );
+
+                ///TODO Crear calculo total de la orden hecha.
+
                 done();
               });
           })
