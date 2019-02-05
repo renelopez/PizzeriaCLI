@@ -97,10 +97,10 @@ describe("Customer Tests", () => {
                   quantity: 5,
                   productTotal: 850
                 }
-              ]
+              ],
+              total: 1570
             }
-          ],
-          total: 1570
+          ]
         });
 
         customer

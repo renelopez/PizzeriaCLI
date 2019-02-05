@@ -1,29 +1,32 @@
-const webpack = require('webpack')
-const path = require('path')
-const nodeExternals = require('webpack-node-externals')
-const StartServerPlugin = require('start-server-webpack-plugin')
+const webpack = require("webpack");
+const path = require("path");
+const nodeExternals = require("webpack-node-externals");
+const StartServerPlugin = require("start-server-webpack-plugin");
 
 module.exports = {
-  entry: ['webpack/hot/poll?1000', './src/index'],
+  entry: ["webpack/hot/poll?1000", "./src/index"],
   watch: true,
-  devtool: 'sourcemap',
-  target: 'node',
+  devtool: "sourcemap",
+  target: "node",
   node: {
     __filename: true,
     __dirname: true
   },
-  externals: [nodeExternals({ whitelist: ['webpack/hot/poll?1000'] })],
+  externals: [nodeExternals({ whitelist: ["webpack/hot/poll?1000"] })],
   module: {
     rules: [
       {
         test: /\.js?$/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              babelrc: false,
-              presets: [['env', { modules: false }], 'stage-0'],
-              plugins: ['transform-regenerator', 'transform-runtime']
+              babelrc: true,
+              presets: [["env", { modules: false }], "stage-0"],
+              plugins: [
+                "@babel/transform-regenerator",
+                "@babel/transform-runtime"
+              ]
             }
           }
         ],
@@ -33,20 +36,24 @@ module.exports = {
         test: /\.(graphql|gql)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'raw-loader'
+          loader: "raw-loader"
         }
       }
     ]
   },
   plugins: [
-    new StartServerPlugin('server.js'),
+    new StartServerPlugin("server.js"),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
-      'process.env': { BUILD_TARGET: JSON.stringify('server') }
+      "process.env": { BUILD_TARGET: JSON.stringify("server") }
     }),
-    new webpack.BannerPlugin({ banner: 'require("source-map-support").install();', raw: true, entryOnly: false })
+    new webpack.BannerPlugin({
+      banner: 'require("source-map-support").install();',
+      raw: true,
+      entryOnly: false
+    })
   ],
-  output: { path: path.join(__dirname, 'dist'), filename: 'server.js' }
+  output: { path: path.join(__dirname, "dist"), filename: "server.js" }
 };
